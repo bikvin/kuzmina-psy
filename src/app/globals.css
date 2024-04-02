@@ -3,31 +3,224 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --light-blue-color: #6ec1e4;
+  --darker-blue-color: #65bce2d2;
+  --turquoise-color: #47e4d3;
+  --darker-turquoise-color: #2ce0cc;
+  --very-light-blue-color: #d0eefb;
+  --dark-gray-color: #54595f;
+  --light-gray-color: #7a7a7a;
+  --green-color: #61ce70;
+  --very-light-gray-color: #d1d8db;
+  --almost-black-color: #070917;
+  --light-orange-color: #f05b10;
+  --dark-orange-color: #e5570f;
+  --dark-red-color: #9a0f10;
+  --lighter-red-color: #a21011;
+  --very-dark-red-color: #2e0505;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Lora', serif; */
+  font-family: var(--font-carlito), sans-serif;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: 400;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+.sectionHeader {
+  text-align: center;
+}
+
+.sectionSubHeader {
+  font-size: 24px;
+  color: var(--light-blue-color);
+}
+
+.page-content {
+  padding-top: 40px;
+  min-height: calc(100vh - 436px); /* 436px is the height of the footer */
+}
+
+.wrapper {
+  max-width: 1134px;
+  margin: 0 auto;
+}
+
+.link {
+  color: rgb(43, 119, 226);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  border: 0;
+  border-radius: 5px;
+  padding: 30px;
+  color: white;
+}
+
+.blue {
+  background-color: rgb(43, 119, 226);
+}
+
+.blue:hover {
+  background-color: rgba(43, 119, 226, 0.85);
+}
+
+.btn-disabled,
+.btn-disabled:hover {
+  background-color: rgb(188, 204, 227);
+}
+
+.error {
+  color: rgb(168, 23, 23);
+}
+
+.success {
+  border: 1px solid rgb(68, 141, 92);
+  background-color: rgb(210, 239, 215);
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.wrapper {
+  max-width: 1134px;
+  margin: 0 auto;
+}
+
+.test-div {
+  margin-top: 100px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/*----------------------------------FOOTER----------------------------------------------*/
+
+footer {
+  /* background: var(--almost-black-color); */
+  background: var(--very-dark-red-color);
+
+  height: 436px; /* applying fixed height to make footer sticky */
+
+  padding: 100px 0;
+  color: #fff;
+}
+
+footer h4 {
+  font-size: 20px;
+}
+
+footer ul {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+  height: 48px;
+  flex-wrap: wrap;
+}
+
+footer ul li {
+  list-style: none;
+  font-size: 18px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+footer ul li a::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: text-top;
+  margin-right: 5px;
+  transition: all 500ms ease;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+  font-size: 20px;
+}
+footer ul li.whatsapp a::before {
+  background: url(/img/icons/social-media/whatsapp.svg);
+}
+
+footer ul li.telegram a::before {
+  background: url(/img/icons/social-media/telegram.svg);
+}
+
+footer ul li.telegram-channel a::before {
+  background: url(/img/icons/social-media/telegram-channel-white.svg);
+}
+
+footer ul li.instagram a::before {
+  background: url(/img/icons/social-media/no-insta.svg);
+  width: 42px;
+  height: 42px;
+}
+
+footer ul li a:hover::before {
+  width: 48px;
+  height: 48px;
+}
+
+footer .phone,
+footer .name {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+/*----------------------------------END OF FOOTER----------------------------------------------*/
+
+/*---------------------------------- < 1134 px ----------------------------------------------*/
+
+@media only screen and (max-width: 1134px) {
+  .wrapper {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .nowrap {
+    white-space: normal;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+/*---------------------------------- < 760 px ----------------------------------------------*/
+@media only screen and (max-width: 760px) {
+  .wrapper {
+    padding: 0;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  footer {
+    padding: 100px 20px 100px 20px;
+    height: unset;
+  }
+
+  footer ul {
+    height: unset;
+  }
+
+  footer ul li {
+    flex: 1 1 100%;
   }
 }

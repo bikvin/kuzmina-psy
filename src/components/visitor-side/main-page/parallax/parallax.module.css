@@ -1,0 +1,44 @@
+.parallax {
+  /* Set a specific height */
+  min-height: 400px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.face {
+  background-image: url(/img/bg/face.jpg);
+}
+
+.exit {
+  background-image: url(/img/bg/exit.jpg);
+}
+
+.exit2 {
+  background-image: url(/img/bg/exit2.jpg);
+}
+
+.sofa {
+  background-image: url(/img/bg/sofa.jpg);
+}
+
+.webinar2 {
+  background-image: url(/img/bg/webinar2.jpg);
+}
+
+@media only screen and (max-width: 760px) {
+  .parallax {
+    background-attachment: inherit;
+  }
+
+  .parallax.exit,
+  .parallax.exit2,
+  .parallax.face,
+  .parallax.sofa,
+  .parallax.webinar2 {
+    background-size: cover;
+  }
+}

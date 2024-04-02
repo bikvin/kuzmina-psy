@@ -1,0 +1,113 @@
+.header {
+  border-bottom: 1px solid var(--very-light-gray-color);
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 2;
+  left: 0;
+  top: 0;
+}
+
+.header h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.top-menu-desktop {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  /* padding: 5px 10px 5px 10px; */
+}
+
+.top-menu-desktop a.logo {
+  margin: auto 0;
+}
+
+/* .top-menu-desktop h2 {
+  font-family: var(--font-lora);
+} */
+
+.top-menu-desktop ul {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-menu-desktop ul li {
+  list-style-type: none;
+  font-size: 16px;
+}
+
+.top-menu-desktop ul li a {
+  text-decoration: none;
+  color: #000;
+  transition: all 500ms ease;
+}
+
+.top-menu-desktop ul li a:hover {
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.top-menu-desktop ul li a::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: text-top;
+  margin-right: 5px;
+  transition: all 500ms ease;
+}
+
+.top-menu-desktop ul li.whatsapp a::before {
+  background: url("/img/icons/social-media/whatsapp.svg");
+}
+
+.top-menu-desktop ul li.telegram a::before {
+  background: url("/img/icons/social-media/telegram.svg");
+}
+
+.top-menu-desktop ul li.telegram-channel a::before {
+  background: url("/img/icons/social-media/telegram-channel.svg");
+}
+
+.top-menu-desktop ul li.instagram a::before {
+  background: url("/img/icons/social-media/no-insta.svg");
+  width: 21px;
+  height: 21px;
+}
+
+.top-menu-desktop ul li a:hover::before {
+  width: 23px;
+  height: 23px;
+}
+
+/*---------------------------------- < 1134 px ----------------------------------------------*/
+
+@media only screen and (max-width: 1134px) {
+  .top-menu-desktop {
+    padding: 0 50px;
+  }
+}
+
+/*---------------------------------- < 760 px ----------------------------------------------*/
+@media only screen and (max-width: 760px) {
+  .top-menu-desktop {
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    /* align-items: center; */
+  }
+
+  .top-menu-desktop a h2 {
+    text-align: center;
+  }
+
+  .top-menu-desktop a.logo {
+    margin: 0;
+  }
+}

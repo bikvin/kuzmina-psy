@@ -1,0 +1,42 @@
+/*----------------------------------PRICES----------------------------------------------*/
+
+.prices {
+  padding: 100px 0 100px 0;
+}
+
+.prices .content {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 40px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.prices .service {
+  /* flex: 1 1 33%; */
+  flex: 1 1 0px;
+}
+
+.prices .price {
+  font-family: var(--font-lora), serif;
+  font-size: 20px;
+}
+
+.prices .comment {
+  font-family: var(--font-lora), serif;
+  font-size: 14px;
+  color: var(--light-gray-color);
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 760px) {
+  .prices {
+    padding: 50px 20px 50px 20px;
+  }
+  .prices .service {
+    flex: 1 1 100%;
+    margin-bottom: 30px;
+  }
+}
+
+/*----------------------------------END OF PRICES----------------------------------------------*/

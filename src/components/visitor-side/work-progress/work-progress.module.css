@@ -1,0 +1,97 @@
+/*----------------------------------WORK PROGRESS----------------------------------------------*/
+
+.work-progress {
+  padding: 100px 0 100px 0;
+}
+
+.work-progress .content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 0 0 0;
+}
+
+.work-progress .stage {
+  flex: 1 1 50%;
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.work-progress .stage .label {
+  width: 30%;
+  text-align: center;
+}
+
+.work-progress .stage ul {
+  width: 70%;
+}
+
+.work-progress h4 {
+  font-size: 18px;
+}
+
+.work-progress h4 .number {
+  font-size: 100px;
+  vertical-align: middle;
+  line-height: 80%;
+  /* word-break: keep-all; */
+}
+
+.work-progress .stage-label {
+  vertical-align: middle;
+}
+
+.work-progress .stage ul {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.work-progress .comment {
+  font-family: var(--font-lora), serif;
+  font-size: 14px;
+  color: var(--light-gray-color);
+  padding: 10px 0;
+}
+
+.work-progress .stage ul li {
+  list-style: none;
+  padding: 4px 0 4px 22px;
+  font-family: var(--font-lora), serif;
+  line-height: 150%;
+  position: relative;
+  font-size: 16px;
+}
+
+.work-progress .stage ul li::before {
+  content: "";
+  display: inline-block;
+  height: 13px;
+  width: 15px;
+  background-image: url(/img/icons/ui/tick.svg);
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}
+
+@media only screen and (max-width: 760px) {
+  .work-progress {
+    padding: 50px 20px 50px 20px;
+  }
+
+  .work-progress .stage {
+    flex: 1 1 100%;
+    flex-direction: column;
+  }
+
+  .work-progress .stage .label {
+    width: 100%;
+  }
+
+  .work-progress .stage ul {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/*----------------------------------END OF WORK PROGRESS----------------------------------------------*/

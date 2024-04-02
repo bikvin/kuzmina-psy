@@ -1,0 +1,29 @@
+.navBar {
+  display: flex;
+  padding: 20px 20px;
+  background-color: rgb(72, 44, 157);
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoutButton {
+  color: rgb(255, 0, 0);
+}
+
+.navBar h3 {
+  font-size: 20px;
+}
+
+.topMenuLink {
+  color: #fff;
+}
+
+.menuItems {
+  display: flex;
+  gap: 20px;
+}
+
+.active {
+  text-decoration: underline;
+}

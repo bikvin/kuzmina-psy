@@ -1,0 +1,99 @@
+/*----------------------------------END OF ACCORDION----------------------------------------------*/
+
+.accordion-section {
+  padding: 150px 0;
+}
+
+.accordion-section h2 {
+  margin-bottom: 70px;
+}
+
+.accordion-section .wrapper {
+  max-width: 960px;
+  padding: 0 20px;
+}
+
+.accordion-section button {
+  width: 100%;
+  border: 0;
+  background: #fff;
+  border-top: 1px solid var(--very-light-gray-color);
+  cursor: pointer;
+  padding: 20px 50px 20px 0;
+  font-size: 24px;
+  text-align: left;
+  font-family: "Lora", serif;
+  position: relative;
+}
+
+.accordion-section button::after {
+  content: url(/img/icons/ui/plus.svg);
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 14px);
+  color: var(--light-blue-color);
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  /* color: var(--light-blue-color); */
+  /* border: 1px solid red; */
+  transition: all 1s;
+}
+
+.accordion-section button.active::after {
+  transform: rotate(-45deg);
+  right: 21px;
+  top: calc(50% - 13px);
+}
+
+.accordion-section button:hover::before,
+.accordion-section button.active::before {
+  content: "";
+  position: absolute;
+  right: calc(20px - 8px);
+  top: calc(50% - 20px);
+
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: var(--dark-gray-color);
+}
+
+.accordion-section .panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s;
+  font-family: "Lora", serif;
+  font-size: 20px;
+  line-height: 170%;
+}
+
+.accordion-section .panel ol li {
+  list-style-type: decimal;
+}
+
+@media only screen and (max-width: 1134px) {
+  .accordionSectionWrapper {
+    padding: 0 20px 0 20px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .accordion-section button {
+    font-size: 20px;
+  }
+
+  .accordion-section button::after {
+    right: 20px;
+    top: calc(50% - 12px);
+  }
+
+  .accordion-section button.active::after {
+    right: 20px;
+    top: calc(50% - 12px);
+  }
+}
+
+/*----------------------------------END OF ACCORDION----------------------------------------------*/
