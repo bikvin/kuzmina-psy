@@ -22,7 +22,7 @@
   padding: 20px 50px 20px 0;
   font-size: 24px;
   text-align: left;
-  font-family: "Lora", serif;
+  font-family: var(--font-lora), serif;
   position: relative;
 }
 
@@ -65,7 +65,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 1s;
-  font-family: "Lora", serif;
+  font-family: var(--font-lora), serif;
   font-size: 20px;
   line-height: 170%;
 }

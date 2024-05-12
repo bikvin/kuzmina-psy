@@ -1,10 +1,10 @@
 import classes from "./newUser.module.css";
-import CreateUserForm from "@/components/user/createUserForm";
+import CreateUserForm from "@/components/admin/user/createUserForm";
 
 export default function UserCreatePage() {
   return (
     <>
-      <div className={classes.container}>
+      <div className={`adminFormContainer`}>
         <h1>Создать пользователя</h1>
         <CreateUserForm />
       </div>

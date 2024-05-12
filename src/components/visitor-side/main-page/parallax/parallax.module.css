@@ -1,14 +1,3 @@
-.parallax {
-  /* Set a specific height */
-  min-height: 400px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .face {
   background-image: url(/img/bg/face.jpg);
 }
@@ -39,6 +28,6 @@
   .parallax.face,
   .parallax.sofa,
   .parallax.webinar2 {
-    background-size: cover;
+    background-size: contain;
   }
 }

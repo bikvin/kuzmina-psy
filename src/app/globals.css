@@ -10,7 +10,9 @@
   --very-light-blue-color: #d0eefb;
   --dark-gray-color: #54595f;
   --light-gray-color: #7a7a7a;
+  --lighter-gray-color: #898989;
   --green-color: #61ce70;
+  --light-green-color: #85cb8e;
   --very-light-gray-color: #d1d8db;
   --almost-black-color: #070917;
   --light-orange-color: #f05b10;
@@ -18,6 +20,10 @@
   --dark-red-color: #9a0f10;
   --lighter-red-color: #a21011;
   --very-dark-red-color: #2e0505;
+  --delete-red-color: #984848;
+  --delete-darker-red-color: #983535;
+  --green-button-color: #539e5d;
+  --light-green-button-color: #66a06d;
 }
 
 *,
@@ -71,6 +77,13 @@ h4 {
   border-radius: 5px;
   padding: 30px;
   color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.smallButton {
+  padding: 5px;
+  width: 150px;
 }
 
 .blue {
@@ -79,6 +92,30 @@ h4 {
 
 .blue:hover {
   background-color: rgba(43, 119, 226, 0.85);
+}
+
+.red {
+  background-color: var(--delete-red-color);
+}
+
+.red:hover {
+  background-color: var(--delete-darker-red-color);
+}
+
+.green {
+  background-color: var(--green-button-color);
+}
+
+.green:hover {
+  background-color: var(--light-green-button-color);
+}
+
+.gray {
+  background-color: var(--light-gray-color);
+}
+
+.gray:hover {
+  background-color: var(--lighter-gray-color);
 }
 
 .btn-disabled,
@@ -108,6 +145,53 @@ h4 {
 
 .nowrap {
   white-space: nowrap;
+}
+
+.parallax {
+  /* Set a specific height */
+  min-height: 400px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*----------------------------------ADMIN----------------------------------------------*/
+
+.adminForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.adminForm div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.adminForm input,
+.adminForm textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.adminFormContainer {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 15%;
+}
+
+.adminFormContainer h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
 }
 
 /*----------------------------------FOOTER----------------------------------------------*/

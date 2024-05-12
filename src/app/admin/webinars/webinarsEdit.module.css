@@ -1,0 +1,6 @@
+.topBar {
+  margin-top: 70px;
+  padding: 0 50px;
+  display: flex;
+  justify-content: end;
+}

@@ -1,11 +1,10 @@
-import classes from "./editUser.module.css";
+import classes from "./editUserPage.module.css";
 import { db } from "@/db";
-import EditUserForm from "@/components/user/editUserForm";
+import EditUserForm from "@/components/admin/user/editUserForm";
+import TopMenu from "@/components/admin/topMenu/topMenu";
 
 export default async function editUser() {
   const user = await db.user.findFirst();
-
-  console.log(user);
 
   if (!user) {
     throw new Error("User not found");
@@ -13,9 +12,10 @@ export default async function editUser() {
 
   return (
     <>
-      <div className={classes.container}>
+      <TopMenu page="user" />
+      <div className={`adminFormContainer`}>
         <h1>Редактировать пользователя</h1>
-        <EditUserForm username={user.name} email={user.email} />
+        <EditUserForm username={user.name} email={user.email} id={user.id} />
       </div>
     </>
   );

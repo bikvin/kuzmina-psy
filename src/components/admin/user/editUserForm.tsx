@@ -15,7 +15,7 @@ export default function EditUserForm(props: {
   });
 
   return (
-    <form className={classes.form} action={action}>
+    <form className={`adminForm`} action={action}>
       <div>
         <label htmlFor="name">Имя</label>
 

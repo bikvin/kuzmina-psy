@@ -1,0 +1,39 @@
+/*----------------------------------WEBINAR-GRID----------------------------------------------*/
+
+.webinars-grid {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.webinars-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px 10%;
+}
+.webinar iframe {
+  width: 100%;
+  height: 300px;
+}
+
+.webinars-grid h4 {
+  font-size: 24px;
+  color: var(--light-blue-color);
+  font-weight: 400;
+  text-align: left;
+  padding: 20px 0 0px 0;
+}
+
+/*---------------------------------- < 760 px ----------------------------------------------*/
+@media only screen and (max-width: 760px) {
+  .webinars-grid {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .webinars-grid-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+/*----------------------------------END OF  < 760 px ----------------------------------------------*/
