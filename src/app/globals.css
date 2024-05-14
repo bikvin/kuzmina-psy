@@ -308,4 +308,8 @@ footer .name {
   footer ul li {
     flex: 1 1 100%;
   }
+
+  .adminFormContainer {
+    width: 80%;
+  }
 }
