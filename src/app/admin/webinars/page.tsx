@@ -10,9 +10,12 @@ export default function WebinarsAdminPage() {
 
       <div className="wrapper">
         <div className={classes.topBar}>
-          <div className="button green smallButton">
-            <Link href={`/admin/webinars/new`}>Новый вебинар</Link>
-          </div>
+          <Link
+            className="button green smallButton"
+            href={`/admin/webinars/new`}
+          >
+            Новый вебинар
+          </Link>
         </div>
 
         <WebinarsEdit />

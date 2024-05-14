@@ -79,6 +79,7 @@ h4 {
   color: white;
   cursor: pointer;
   text-align: center;
+  display: block;
 }
 
 .smallButton {

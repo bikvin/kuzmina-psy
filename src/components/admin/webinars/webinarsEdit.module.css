@@ -46,3 +46,16 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+/*---------------------------------- < 760 px ----------------------------------------------*/
+
+@media only screen and (max-width: 760px) {
+  .webinarsEditCard {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .column {
+    width: 90%;
+  }
+}

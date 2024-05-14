@@ -27,12 +27,19 @@ export default function SingleWebinarEditCard({
         <p>{description}</p>
       </div>
       <div className={`${classes.column} ${classes.buttonsColumn}`}>
-        <div className="button blue smallButton">
-          <Link href={`/admin/webinars/edit/${id}`}>Редактировать</Link>
-        </div>
-        <div className="button red smallButton">
-          <Link href={`/admin/webinars/delete/${id}`}>Удалить</Link>
-        </div>
+        <Link
+          className="button blue smallButton"
+          href={`/admin/webinars/edit/${id}`}
+        >
+          Редактировать
+        </Link>
+
+        <Link
+          className="button red smallButton"
+          href={`/admin/webinars/delete/${id}`}
+        >
+          Удалить
+        </Link>
       </div>
     </div>
   );
