@@ -9,13 +9,15 @@ export default async function SingleArticle({
 }: {
   params: { id: string };
 }) {
-  const tempImageUrl = "/img/bg/article1.jpg";
+  // const tempImageUrl = "/img/bg/article1.jpg";
 
   const article = await db.article.findUnique({ where: { id: params.id } });
 
   if (!article || !article.text) {
     return <div>Статья не найдена</div>;
   }
+
+  const imageSrc = `${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${article.imageFileName}`;
 
   const articleTextObj = { __html: article.text }; // this object is needed for dangerouslySetInnerHTML
 
@@ -26,9 +28,7 @@ export default async function SingleArticle({
       <div className={`page-content ${classes["single-article"]}`}>
         <div className={`wrapper ${classes.singleArticleWrapper}`}>
           <div className={classes.imageContainer}>
-            {tempImageUrl ? (
-              <Image fill={true} src={tempImageUrl} alt="" />
-            ) : null}
+            {imageSrc ? <Image fill={true} src={imageSrc} alt="" /> : null}
           </div>
           <div dangerouslySetInnerHTML={articleTextObj} />
         </div>

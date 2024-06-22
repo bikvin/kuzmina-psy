@@ -8,7 +8,7 @@ export default async function ArticlesGrid() {
       createdAt: "desc",
     },
   });
-  const tempImageUrl = "/img/bg/article1.jpg";
+  // const tempImageUrl = "/img/bg/article1.jpg";
 
   if (!articlesData || articlesData.length === 0) {
     return <div>Статьи не найдены</div>;
@@ -22,7 +22,7 @@ export default async function ArticlesGrid() {
           <Article
             key={article.id}
             articleId={article.id}
-            imageSrc={tempImageUrl}
+            imageSrc={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${article.imageFileName}`}
             header={article.header}
             subheader={article.description}
           />

@@ -5,13 +5,11 @@ export default function SingleArticleEditCard({
   id,
   header,
   text,
-  imageUrl,
   description,
 }: {
   id: string;
   header: string;
   text: string;
-  imageUrl: string;
   description: string;
 }) {
   // const youTubeCodeObj = { __html: youTubeCode };

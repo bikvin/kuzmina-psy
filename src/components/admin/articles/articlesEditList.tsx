@@ -21,7 +21,6 @@ export default async function ArticlesEditList() {
           header={article.header}
           description={article.description}
           text={article.text}
-          imageUrl={tempImageUrl}
         />
       ))}
     </div>
