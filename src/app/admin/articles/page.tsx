@@ -1,24 +1,24 @@
 import TopMenu from "@/components/admin/topMenu/topMenu";
 import adminClasses from "@/app/admin/adminClasses.module.css";
-import WebinarsEdit from "@/components/admin/webinars/webinarsEdit";
+import AriclesEditList from "@/components/admin/articles/articlesEditList";
 import Link from "next/link";
 
-export default function WebinarsAdminPage() {
+export default function ArticlesAdminPage() {
   return (
     <>
-      <TopMenu page="webinars" />
+      <TopMenu page="articles" />
 
       <div className="wrapper">
         <div className={adminClasses.topBar}>
           <Link
             className="button green smallButton"
-            href={`/admin/webinars/new`}
+            href={`/admin/articles/new`}
           >
-            Новый вебинар
+            Новая статья
           </Link>
         </div>
 
-        <WebinarsEdit />
+        <AriclesEditList />
       </div>
     </>
   );

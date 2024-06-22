@@ -1,16 +1,19 @@
 import Article from "./article/article";
 import classes from "./articlesGrid.module.css";
+import { db } from "@/db";
 
-export default function ArticlesGrid({
-  articlesData,
-}: {
-  articlesData: {
-    id: number;
-    header: string;
-    subheader: string;
-    imageUrl: string;
-  }[];
-}) {
+export default async function ArticlesGrid() {
+  const articlesData = await db.article.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+  const tempImageUrl = "/img/bg/article1.jpg";
+
+  if (!articlesData || articlesData.length === 0) {
+    return <div>Статьи не найдены</div>;
+  }
+
   // console.log(articlesData);
   return (
     <div className="wrapper">
@@ -19,9 +22,9 @@ export default function ArticlesGrid({
           <Article
             key={article.id}
             articleId={article.id}
-            imageSrc={article.imageUrl}
+            imageSrc={tempImageUrl}
             header={article.header}
-            subheader={article.subheader}
+            subheader={article.description}
           />
         ))}
       </section>

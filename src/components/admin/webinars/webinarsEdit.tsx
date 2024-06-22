@@ -1,4 +1,3 @@
-import { webinarsData2 } from "../../visitor-side/webinars-page/webinarsData";
 import SingleWebinarEditCard from "./singleWebinarEditCard";
 import classes from "./webinarsEdit.module.css";
 import { db } from "@/db";

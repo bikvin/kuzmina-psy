@@ -8,7 +8,7 @@ export default function Article({
   header,
   subheader,
 }: {
-  articleId: number;
+  articleId: string;
   imageSrc: string;
   header: string;
   subheader: string;

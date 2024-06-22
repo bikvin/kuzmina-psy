@@ -1,0 +1,21 @@
+.submit-button {
+  display: block;
+  background-color: green;
+  padding: 10px;
+  border: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.state-message {
+  padding: 10px;
+  text-align: center;
+}
+
+.state-message.success {
+  color: green;
+}
+
+.state-message.error {
+  color: red;
+}

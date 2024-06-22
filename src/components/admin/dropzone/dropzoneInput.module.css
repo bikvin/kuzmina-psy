@@ -1,0 +1,45 @@
+.dropzone {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 30px 30px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.imagePreview {
+  width: 320px;
+  height: 240px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+}
+
+.fileName {
+  text-align: center;
+}
+.error {
+  color: var(--lighter-red-color);
+}
+
+.loaderIcon {
+  animation: spin-animation 1s infinite;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

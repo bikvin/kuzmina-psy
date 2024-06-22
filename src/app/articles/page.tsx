@@ -13,7 +13,7 @@ export default function Articles() {
       <div className="page-content">
         <HeroSection />
 
-        <ArticlesGrid articlesData={data} />
+        <ArticlesGrid />
       </div>
       <Footer />
     </>
