@@ -1,11 +1,21 @@
 .dropzone {
-  border: 1px solid #ccc;
+  border: 2px dashed #bbb;
   text-align: center;
   padding: 30px 30px;
   border-radius: 5px;
   width: 100%;
   background-color: #eee;
+
   cursor: pointer;
+}
+.reject {
+  background-color: #e3bab5;
+  border: 2px dashed #d46b6b;
+}
+
+.accept {
+  background-color: #d0e7d2;
+  border: 2px dashed #4a894f;
 }
 
 .imagePreview {

@@ -1,20 +1,20 @@
+"use client";
+
 import { useDropzone } from "react-dropzone";
 import classes from "./dropzoneInput.module.css";
 import { useCallback, useState } from "react";
 import Image from "next/image";
 import { BiLoaderAlt } from "react-icons/bi";
 import PropTypes from "prop-types";
+import { useMemo } from "react";
 
 function DropzoneInput({ handleFileChange, dbSavedFileName }) {
   const [isUploading, setIsUploading] = useState(false);
   const [randomFileName, setRandomFileName] = useState(dbSavedFileName);
 
-  // const link = process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK;
-  // const shortLink = link.slice(8, link.length);
-
   const onDrop = useCallback((acceptedFiles) => {
-    console.log("onDrop");
-    console.log("acceptedFiles", acceptedFiles);
+    // console.log("onDrop");
+    // console.log("acceptedFiles", acceptedFiles);
 
     if (acceptedFiles.length == 0) return;
 
@@ -56,15 +56,21 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
     });
   }, []);
 
-  const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
-    useDropzone({
-      onDrop,
-      accept: {
-        "image/jpeg": [],
-        "image/png": [],
-      },
-      maxFiles: 1,
-    });
+  const {
+    acceptedFiles,
+    fileRejections,
+    getRootProps,
+    getInputProps,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({
+    onDrop,
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+    },
+    maxFiles: 1,
+  });
 
   const files = acceptedFiles.map((file) => (
     <li key={file.path} className={classes.fileName}>
@@ -85,9 +91,41 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
   //   );
   // });
 
+  let dropzoneStyle = `${classes.dropzone}`;
+
+  if (isDragAccept) {
+    console.log("accept");
+    dropzoneStyle += ` ${classes.accept}`;
+  }
+
+  if (isDragReject) {
+    console.log("reject");
+    dropzoneStyle += ` ${classes.reject}`;
+  }
+
+  // const style = useMemo(() => {
+  //   {
+  //     console.log("sty");
+  //     dropzoneStyle = `${classes.dropzone}`;
+
+  //     if (isDragAccept) {
+  //       console.log("accept");
+  //       dropzoneStyle = `${classes.dropzone} ${classes.accept}`;
+  //     }
+
+  //     if (isDragReject) {
+  //       console.log("regect");
+  //     }
+  //   }
+  // }, [isDragAccept, isDragReject]);
+
   return (
     <section className="container">
-      <div {...getRootProps({ className: classes.dropzone })}>
+      <div
+        {...getRootProps({
+          className: dropzoneStyle,
+        })}
+      >
         <input {...getInputProps()} />
         <p>Выберите файл или перетащите сюда</p>
       </div>
