@@ -139,7 +139,7 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
         {!isUploading && randomFileName && (
           <div className={classes.imagePreview}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${randomFileName}`}
+              src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${randomFileName}`}
               alt=""
               width={320}
               height={240}

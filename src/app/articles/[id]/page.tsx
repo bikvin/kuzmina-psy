@@ -17,7 +17,7 @@ export default async function SingleArticle({
     return <div>Статья не найдена</div>;
   }
 
-  const imageSrc = `${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${article.imageFileName}`;
+  const imageSrc = `${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${article.imageFileName}`;
 
   const articleTextObj = { __html: article.text }; // this object is needed for dangerouslySetInnerHTML
 
