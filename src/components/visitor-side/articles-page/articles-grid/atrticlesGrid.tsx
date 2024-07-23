@@ -22,7 +22,7 @@ export default async function ArticlesGrid() {
           <Article
             key={article.id}
             articleId={article.id}
-            imageSrc={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${article.imageFileName}`}
+            imageSrc={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/articles/${article.imageFileName}`}
             header={article.header}
             subheader={article.description}
           />

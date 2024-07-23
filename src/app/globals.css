@@ -186,7 +186,8 @@ h4 {
 .adminFormContainer {
   width: 40%;
   margin: 0 auto;
-  margin-top: 15%;
+  margin-top: 10%;
+  margin-bottom: 15%;
 }
 
 .articleForm {

@@ -31,6 +31,7 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
         const loadToS3 = async () => {
           const formData = new FormData();
           formData.append("file", file);
+          formData.append("directory", "articles");
 
           try {
             const response = await fetch("/api/s3-upload", {
@@ -139,7 +140,7 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
         {!isUploading && randomFileName && (
           <div className={classes.imagePreview}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/${randomFileName}`}
+              src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/articles/${randomFileName}`}
               alt=""
               width={320}
               height={240}
@@ -158,6 +159,7 @@ function DropzoneInput({ handleFileChange, dbSavedFileName }) {
 }
 
 // this is to make dbSavedFileName optional
+
 DropzoneInput.propTypes = {
   handleFileChange: PropTypes.func.isRequired,
   dbSavedFileName: PropTypes.string,

@@ -27,6 +27,12 @@ export default function TopMenu({ page }: { page: string }) {
         />
         <TopMenuItem
           currentPage={page}
+          menuItemPage="certificates"
+          menuItemLabel={"Сертификаты"}
+          href={"/admin/certificates"}
+        />
+        <TopMenuItem
+          currentPage={page}
           menuItemPage="user"
           menuItemLabel={"Пользователь"}
           href={"/admin/user/edit"}

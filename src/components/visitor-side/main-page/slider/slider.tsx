@@ -2,42 +2,64 @@
 
 import classes from "./slider.module.css";
 import { SyntheticEvent, useRef, useState } from "react";
+import Image from "next/image";
 
-export default function Slider() {
+export default function Slider({
+  certificatesData,
+}: {
+  certificatesData: { name: string; id: string }[];
+}) {
   const [rectClasses, setRectClasses] = useState("");
+
+  const certArr = certificatesData.map((certificateData, index) => {
+    // this is to make first certificate have position 3 so that it is shown correctly
+    let position = index + 3;
+    if (position > certificatesData.length) {
+      position = index + 3 - certificatesData.length;
+    }
+    return {
+      position: position,
+      filename: certificateData.name,
+      large: false,
+    };
+  });
+
+  // console.log("tempCertArr", certArr);
 
   const fadeRef = useRef<HTMLDivElement>(null);
 
-  const [sliderItems, setSliderItems] = useState([
-    { position: 1, filename: "cert1.jpg", large: false },
-    { position: 2, filename: "cert2.jpg", large: false },
-    { position: 3, filename: "cert3.jpg", large: false },
-    { position: 4, filename: "cert4.jpg", large: false },
-    { position: 5, filename: "cert5.jpg", large: false },
-    { position: 6, filename: "cert6.jpg", large: false },
-    { position: 7, filename: "diploma1.jpg", large: false },
-    { position: 8, filename: "diploma2.jpg", large: false },
-    { position: 9, filename: "cert7.jpg", large: false },
-    { position: 10, filename: "cert8.jpg", large: false },
-    { position: 11, filename: "cert9.jpg", large: false },
-    { position: 12, filename: "cert10.jpg", large: false },
-    { position: 13, filename: "cert11.jpg", large: false },
-    { position: 14, filename: "cert12.jpg", large: false },
-    { position: 15, filename: "cert13.jpg", large: false },
-    { position: 16, filename: "cert14.jpg", large: false },
-    { position: 17, filename: "cert15.jpg", large: false },
-    { position: 18, filename: "cert16.jpg", large: false },
-    { position: 19, filename: "cert17.jpg", large: false },
-    { position: 20, filename: "cert18.jpg", large: false },
-    { position: 21, filename: "cert19.jpg", large: false },
-    { position: 22, filename: "cert20.jpg", large: false },
-    { position: 23, filename: "cert21.jpg", large: false },
-    { position: 24, filename: "cert22.jpg", large: false },
-    { position: 25, filename: "cert23.jpg", large: false },
-    { position: 26, filename: "cert24.jpg", large: false },
-    { position: 27, filename: "cert25.jpg", large: false },
-    { position: 28, filename: "cert26.jpg", large: false },
-  ]);
+  // const tempCertArray = [
+  //   { position: 1, filename: "cert1.jpg", large: false },
+  //   { position: 2, filename: "cert2.jpg", large: false },
+  //   { position: 3, filename: "cert3.jpg", large: false },
+  //   { position: 4, filename: "cert4.jpg", large: false },
+  //   { position: 5, filename: "cert5.jpg", large: false },
+  //   { position: 6, filename: "cert6.jpg", large: false },
+  //   { position: 7, filename: "diploma1.jpg", large: false },
+  //   { position: 8, filename: "diploma2.jpg", large: false },
+  //   { position: 9, filename: "cert7.jpg", large: false },
+  //   { position: 10, filename: "cert8.jpg", large: false },
+  //   { position: 11, filename: "cert9.jpg", large: false },
+  //   { position: 12, filename: "cert10.jpg", large: false },
+  //   { position: 13, filename: "cert11.jpg", large: false },
+  //   { position: 14, filename: "cert12.jpg", large: false },
+  //   { position: 15, filename: "cert13.jpg", large: false },
+  //   { position: 16, filename: "cert14.jpg", large: false },
+  //   { position: 17, filename: "cert15.jpg", large: false },
+  //   { position: 18, filename: "cert16.jpg", large: false },
+  //   { position: 19, filename: "cert17.jpg", large: false },
+  //   { position: 20, filename: "cert18.jpg", large: false },
+  //   { position: 21, filename: "cert19.jpg", large: false },
+  //   { position: 22, filename: "cert20.jpg", large: false },
+  //   { position: 23, filename: "cert21.jpg", large: false },
+  //   { position: 24, filename: "cert22.jpg", large: false },
+  //   { position: 25, filename: "cert23.jpg", large: false },
+  //   { position: 26, filename: "cert24.jpg", large: false },
+  //   { position: 27, filename: "cert25.jpg", large: false },
+  //   { position: 28, filename: "cert26.jpg", large: false },
+  // ];
+
+  const [sliderItems, setSliderItems] = useState(certArr);
 
   const getTranslateString = (position: Number) => {
     return {
@@ -60,7 +82,7 @@ export default function Slider() {
   };
 
   const rightHandler = () => {
-    console.log("Right button clicked");
+    // console.log("Right button clicked");
 
     const newSliderItems = sliderItems.map((item) => {
       if (item.position < sliderItems.length) {
@@ -133,7 +155,10 @@ export default function Slider() {
                 // onClick={(evt) => itemClickHandler(evt)}
                 onClick={(e) => itemClickHandler(e, sliderItem.position)}
               >
-                <img src={`/img/certificates/${sliderItem.filename}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_PROTOCOL}://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_LINK}/certificates/${sliderItem.filename}`}
+                  alt=""
+                />
               </div>
             );
           })}

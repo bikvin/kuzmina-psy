@@ -8,8 +8,17 @@ import Slider from "@/components/visitor-side/main-page/slider/slider";
 import Webinars from "@/components/visitor-side/main-page/webinars/webinars";
 import Accordion from "@/components/visitor-side/accordion/accordion";
 import Footer from "@/components/visitor-side/footer/footer";
+import { db } from "@/db";
 
-export default function Home() {
+export default async function Home() {
+  const certificates = await db.certificate.findUnique({ where: { id: 1 } });
+  let arrString = "[]"; // if no certificates set it to empty array
+  if (certificates) {
+    arrString = certificates.fileNamesArr;
+  }
+
+  const certificatesData = JSON.parse(arrString);
+
   return (
     <>
       <Header />
@@ -21,7 +30,7 @@ export default function Home() {
         <Parallax image="exit" />
         <WorkProgress />
         <Parallax image="exit2" />
-        <Slider />
+        <Slider certificatesData={certificatesData} />
         <Parallax image="sofa" />
         <Webinars />
         <Parallax image="webinar2" />

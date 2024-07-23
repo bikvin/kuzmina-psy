@@ -18,7 +18,11 @@ const s3Client = new S3Client({
   },
 });
 
-async function uploadFileToS3(file: Buffer, fileName: string) {
+async function uploadFileToS3(
+  file: Buffer,
+  fileName: string,
+  directory: string
+) {
   const fileBuffer = file;
   console.log(fileName);
 
@@ -30,7 +34,7 @@ async function uploadFileToS3(file: Buffer, fileName: string) {
 
   const params = {
     Bucket: process.env.NEXT_AWS_S3_BUCKET_NAME,
-    Key: randomFileNameExt,
+    Key: `${directory}/${randomFileNameExt}`,
     Body: fileBuffer,
     ContentType: "image/*",
   };
@@ -46,21 +50,27 @@ async function uploadFileToS3(file: Buffer, fileName: string) {
   }
 }
 
-export async function GET() {
-  return NextResponse.json({ error: "hello" });
-}
-
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const file = formData.get("file");
+    const directory = formData.get("directory");
+
+    console.log("directory", directory);
 
     if (!file || !(file instanceof File)) {
       return NextResponse.json({ error: "File is required." }, { status: 400 });
     }
 
+    if (!directory || directory instanceof File) {
+      return NextResponse.json(
+        { error: "Directory is required." },
+        { status: 400 }
+      );
+    }
+
     const buffer = Buffer.from(await file.arrayBuffer());
-    const fileName = await uploadFileToS3(buffer, file.name);
+    const fileName = await uploadFileToS3(buffer, file.name, directory);
 
     return NextResponse.json({ success: true, fileName });
   } catch (error) {
