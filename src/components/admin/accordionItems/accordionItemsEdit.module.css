@@ -1,0 +1,28 @@
+.Edit {
+  padding: 50px 0px 0 0px;
+}
+
+.EditCard {
+  display: flex;
+  /* flex-wrap: wrap; */
+
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--very-light-gray-color);
+}
+
+.buttonsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.EditCard h3 {
+  color: var(--light-blue-color);
+  font-size: 20px;
+  margin-bottom: 10px;
+}

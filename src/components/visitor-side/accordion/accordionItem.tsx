@@ -7,9 +7,11 @@ import parse from "html-react-parser";
 export default function AccordionItem({
   header,
   content,
+  number,
 }: {
   header: string;
   content: string;
+  number: number;
 }) {
   const [active, setActive] = useState(false);
   const [scrollHeight, setScrollHeight] = useState(0);
@@ -17,7 +19,7 @@ export default function AccordionItem({
   const panelRef = useRef<HTMLDivElement>(null);
 
   const toggleActive = () => {
-    console.log("Toggle active");
+    // console.log("Toggle active");
     if (panelRef.current?.scrollHeight) {
       if (scrollHeight === 0) {
         setScrollHeight(panelRef.current?.scrollHeight);
@@ -32,7 +34,7 @@ export default function AccordionItem({
   return (
     <>
       <button onClick={toggleActive} className={active ? classes.active : ""}>
-        {header}
+        {`${number}. ${header}`}
       </button>
       <div
         ref={panelRef}

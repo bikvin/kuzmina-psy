@@ -33,6 +33,12 @@ export default function TopMenu({ page }: { page: string }) {
         />
         <TopMenuItem
           currentPage={page}
+          menuItemPage="accordionItems"
+          menuItemLabel={"Подробнее о методе КПТ"}
+          href={"/admin/accordionItems"}
+        />
+        <TopMenuItem
+          currentPage={page}
           menuItemPage="user"
           menuItemLabel={"Пользователь"}
           href={"/admin/user/edit"}

@@ -1,7 +1,7 @@
 "use client";
 import { useFormState } from "react-dom";
 import FormButton from "@/components/common/formButton";
-import { RichTextEditor } from "../RichTextEditor";
+import { RichTextEditor } from "../../../common/richTextEditor/RichTextEditor";
 import { useState } from "react";
 import DropzoneInput from "@/components/admin/articles/dropzone/dropzoneInput";
 import * as actions from "@/actions/article/create";

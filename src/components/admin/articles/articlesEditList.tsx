@@ -3,9 +3,7 @@ import classes from "./articlesEdit.module.css";
 import { db } from "@/db";
 import { data } from "@/app/articles/data";
 
-export default async function ArticlesEditList() {
-  const tempImageUrl = "/img/bg/article1.jpg";
-
+export default async function AccordionItemsEditList() {
   const articlesData = await db.article.findMany({
     orderBy: {
       createdAt: "desc",
