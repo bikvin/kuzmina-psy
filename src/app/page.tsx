@@ -11,13 +11,19 @@ import Footer from "@/components/visitor-side/footer/footer";
 import { db } from "@/db";
 
 export default async function Home() {
-  const certificates = await db.certificate.findUnique({ where: { id: 1 } });
+  let certificates;
   let arrString = "[]"; // if no certificates set it to empty array
-  if (certificates) {
-    arrString = certificates.fileNamesArr;
-  }
+  let certificatesData = [];
 
-  const certificatesData = JSON.parse(arrString);
+  try {
+    certificates = await db.certificate.findUnique({ where: { id: 1 } });
+    if (certificates) {
+      arrString = certificates.fileNamesArr;
+    }
+    certificatesData = JSON.parse(arrString);
+  } catch (err) {
+    console.log(err);
+  }
 
   return (
     <>

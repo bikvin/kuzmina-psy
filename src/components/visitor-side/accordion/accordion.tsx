@@ -1,19 +1,19 @@
 import AccordionItem from "./accordionItem";
 import classes from "./accordion.module.css";
-import { accordionData } from "./accordionData";
 import { db } from "@/db";
 
 export default async function Accordion() {
   let itemsData: { id: string; header: string; text: string }[];
+  itemsData = [];
 
-  itemsData = await db.accordionItem.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-
-  if (!itemsData) {
-    return <p>Данные не найдены</p>;
+  try {
+    itemsData = await db.accordionItem.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+  } catch (err) {
+    console.log(err);
   }
 
   return (

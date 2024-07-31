@@ -1,8 +1,21 @@
 import classes from "./hero-section.module.css";
 import Image from "next/image";
 import mainImage from "../../../../../public/img/main.jpg";
+import { db } from "@/db";
+export default async function HeroSection() {
+  let mainText = "";
 
-export default function HeroSection() {
+  try {
+    const mainTextObj = await db.settings.findUnique({
+      where: { field: "mainText" },
+    });
+    if (mainTextObj && mainTextObj.value) {
+      mainText = mainTextObj?.value;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
   return (
     <div className="wrapper">
       <section className={classes["hero-section"]}>
@@ -11,14 +24,7 @@ export default function HeroSection() {
             <Image src={mainImage} fill={true} alt="" />
           </div>
         </div>
-        <div className={classes.right}>
-          Приветствую! Меня зовут Анастасия, и я психолог с преданным отношением
-          к помощи людям. С уникальным подходом к каждому клиенту и вниманием к
-          деталям, я стремлюсь создать поддерживающую и доверительную атмосферу.
-          Моя цель – помочь вам разрешить эмоциональные трудности, обрести
-          ясность и достичь личных целей. С радостью готова быть вашим
-          проводником на пути к психологическому благополучию!
-        </div>
+        <div className={classes.right}>{mainText}</div>
       </section>
     </div>
   );

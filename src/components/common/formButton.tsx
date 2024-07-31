@@ -5,21 +5,33 @@ import { useFormStatus } from "react-dom";
 interface FormButtonProps {
   children: React.ReactNode;
   color?: string;
+  successMessage?: string | null;
+  small?: boolean;
 }
 
 export default function FormButton({
   children,
   color = "blue",
+  successMessage,
+  small,
 }: FormButtonProps) {
   const { pending } = useFormStatus();
+  if (pending) {
+    successMessage = null;
+  }
 
   return (
-    <button
-      className={`button ${color} ${pending ? "btn-disabled" : ""}`}
-      type="submit"
-      disabled={pending}
-    >
-      {pending ? "Загружаем..." : children}
-    </button>
+    <div className="saveButtonDiv">
+      <button
+        className={`button ${color} ${pending ? "btn-disabled" : ""} ${
+          small ? "smallButton" : ""
+        }`}
+        type="submit"
+        disabled={pending}
+      >
+        {pending ? "Загружаем..." : children}
+      </button>
+      <p className="saveButtonSuccessText">{successMessage}</p>
+    </div>
   );
 }

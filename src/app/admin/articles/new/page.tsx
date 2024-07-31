@@ -3,7 +3,7 @@ import CreateArticleForm from "@/components/admin/articles/create/createArticleF
 import TopMenu from "@/components/admin/topMenu/topMenu";
 // import CreateWebinarForm from "@/components/admin/webinars/create/createWebinarForm";
 
-export default function CreateWebinar() {
+export default function CreateArticle() {
   return (
     <>
       <TopMenu page="webinar" />
