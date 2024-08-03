@@ -2,7 +2,7 @@ import TopMenu from "@/components/admin/topMenu/topMenu";
 import adminClasses from "@/app/admin/adminClasses.module.css";
 import { db } from "@/db";
 import EditMainTextForm from "@/components/admin/settings/mainImage/edit/editMainTextForm";
-import EditPricesForm from "@/components/admin/settings/prices/editPricesForm";
+import SettingsForm from "@/components/admin/settings/settings/settingsForm";
 
 export default async function SettingsPage() {
   let data;
@@ -10,6 +10,7 @@ export default async function SettingsPage() {
   let mainText = "";
   let oneConsultationPrice = "";
   let fiveConsultationsPrice = "";
+  let notificationsEmail = "";
 
   try {
     data = await db.settings.findMany({
@@ -18,6 +19,7 @@ export default async function SettingsPage() {
           { field: "mainText" },
           { field: "oneConsultationPrice" },
           { field: "fiveConsultationsPrice" },
+          { field: "notificationsEmail" },
         ],
       },
     });
@@ -26,6 +28,7 @@ export default async function SettingsPage() {
     mainText = "Ошибка загрузки данных. Попробуйте позднее.";
     oneConsultationPrice = "Ошибка загрузки данных. Попробуйте позднее.";
     fiveConsultationsPrice = "Ошибка загрузки данных. Попробуйте позднее.";
+    notificationsEmail = "Ошибка загрузки данных. Попробуйте позднее.";
   }
 
   if (data) {
@@ -37,6 +40,10 @@ export default async function SettingsPage() {
       (element) => element.field === "fiveConsultationsPrice"
     );
 
+    const notificationsEmailObj = data.find(
+      (element) => element.field === "notificationsEmail"
+    );
+
     if (mainTextObj && mainTextObj.value) {
       mainText = mainTextObj.value;
     }
@@ -46,11 +53,16 @@ export default async function SettingsPage() {
     if (fiveConsultationsPriceObj && fiveConsultationsPriceObj.value) {
       fiveConsultationsPrice = fiveConsultationsPriceObj.value;
     }
+
+    if (notificationsEmailObj && notificationsEmailObj.value) {
+      notificationsEmail = notificationsEmailObj.value;
+    }
   }
 
-  const prices = {
+  const settings = {
     oneConsultation: oneConsultationPrice,
     fiveConsultations: fiveConsultationsPrice,
+    notificationsEmail: notificationsEmail,
   };
 
   return (
@@ -63,8 +75,8 @@ export default async function SettingsPage() {
       </div>
 
       <div className={`adminFormContainer pricesForm`}>
-        <h1>Цены</h1>
-        <EditPricesForm prices={prices} />
+        <h1>Настройки</h1>
+        <SettingsForm settings={settings} />
       </div>
     </>
   );

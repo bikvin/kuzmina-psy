@@ -2,6 +2,8 @@ import classes from "./hero-section.module.css";
 import Image from "next/image";
 import mainImage from "../../../../../public/img/main.jpg";
 import { db } from "@/db";
+import FormButton from "@/components/common/formButton";
+import Link from "next/link";
 export default async function HeroSection() {
   let mainText = "";
 
@@ -24,7 +26,14 @@ export default async function HeroSection() {
             <Image src={mainImage} fill={true} alt="" />
           </div>
         </div>
-        <div className={classes.right}>{mainText}</div>
+        <div className={classes.right}>
+          {mainText}
+          <div className={classes.buttonWrapper}>
+            <Link href="#contact">
+              <FormButton color="mainPageBlue">Напишите мне</FormButton>
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

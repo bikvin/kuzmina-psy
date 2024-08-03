@@ -9,6 +9,7 @@ import Webinars from "@/components/visitor-side/main-page/webinars/webinars";
 import Accordion from "@/components/visitor-side/accordion/accordion";
 import Footer from "@/components/visitor-side/footer/footer";
 import { db } from "@/db";
+import Contact from "@/components/visitor-side/main-page/contact/contact";
 
 export default async function Home() {
   let certificates;
@@ -41,6 +42,8 @@ export default async function Home() {
         <Webinars />
         <Parallax image="webinar2" />
         <Accordion />
+        <Parallax image="p1" />
+        <Contact />
         <Footer />
       </div>
     </>

@@ -37,6 +37,10 @@
   line-height: 170%;
 }
 
+.buttonWrapper {
+  margin-top: 30px;
+}
+
 /*---------------------------------- < 1134 px ----------------------------------------------*/
 @media only screen and (max-width: 1134px) {
   .hero-section {

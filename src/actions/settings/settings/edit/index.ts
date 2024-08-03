@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db";
-import { editPricesSchema } from "@/zod/prices";
+import { editSettingsSchema } from "@/zod/settings";
 
 import { revalidatePath } from "next/cache";
 
@@ -9,6 +9,7 @@ interface EditPricesFormState {
   errors?: {
     oneConsultation?: string[];
     fiveConsultations?: string[];
+    notificationsEmail?: string[];
     _form?: string[];
   };
   success?: {
@@ -20,16 +21,18 @@ export async function editPrices(
   formState: EditPricesFormState,
   formData: FormData
 ): Promise<EditPricesFormState> {
-  const oneConsultation = formData.get("oneConsultation");
-  const fiveConsultations = formData.get("fiveConsultations");
+  let oneConsultation = formData.get("oneConsultation");
+  let fiveConsultations = formData.get("fiveConsultations");
+  const notificationsEmail = formData.get("notificationsEmail");
 
-  if (!oneConsultation || !fiveConsultations) {
-    return { errors: { _form: ["Укажите цены"] } };
-  }
+  // this is for typescript to be happy with the possible null value
+  if (!oneConsultation) oneConsultation = "";
+  if (!fiveConsultations) fiveConsultations = "";
 
-  const result = editPricesSchema.safeParse({
+  const result = editSettingsSchema.safeParse({
     oneConsultation: +oneConsultation,
     fiveConsultations: +fiveConsultations,
+    notificationsEmail: notificationsEmail,
   });
 
   if (!result.success) {
@@ -62,6 +65,19 @@ export async function editPrices(
       create: {
         field: "fiveConsultationsPrice",
         value: result.data.fiveConsultations.toString(),
+      },
+    });
+
+    await db.settings.upsert({
+      where: {
+        field: "notificationsEmail",
+      },
+      update: {
+        value: result.data.notificationsEmail.toString(),
+      },
+      create: {
+        field: "notificationsEmail",
+        value: result.data.notificationsEmail.toString(),
       },
     });
   } catch (err: unknown) {

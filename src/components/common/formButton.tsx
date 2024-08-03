@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 interface FormButtonProps {
   children: React.ReactNode;
   color?: string;
+  disabledColor?: string;
   successMessage?: string | null;
   small?: boolean;
 }
@@ -12,6 +13,7 @@ interface FormButtonProps {
 export default function FormButton({
   children,
   color = "blue",
+  disabledColor = "disabledBlue",
   successMessage,
   small,
 }: FormButtonProps) {
@@ -20,10 +22,12 @@ export default function FormButton({
     successMessage = null;
   }
 
+  const disabledClass = pending ? disabledColor : "";
+
   return (
     <div className="saveButtonDiv">
       <button
-        className={`button ${color} ${pending ? "btn-disabled" : ""} ${
+        className={`button ${color} ${disabledClass} ${
           small ? "smallButton" : ""
         }`}
         type="submit"

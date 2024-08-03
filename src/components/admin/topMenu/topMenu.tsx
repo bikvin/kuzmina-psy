@@ -16,7 +16,7 @@ export default function TopMenu({ page }: { page: string }) {
         <TopMenuItem
           currentPage={page}
           menuItemPage="settings"
-          menuItemLabel={"Настройки"}
+          menuItemLabel={"Главный текст и Настройки"}
           href={"/admin/settings"}
         />
         <TopMenuItem

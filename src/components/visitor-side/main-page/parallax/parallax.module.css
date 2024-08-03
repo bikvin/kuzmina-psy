@@ -18,6 +18,10 @@
   background-image: url(/img/bg/webinar2.jpg);
 }
 
+.p1 {
+  background-image: url(/img/bg/p1.jpg);
+}
+
 @media only screen and (max-width: 760px) {
   .parallax {
     background-attachment: inherit;

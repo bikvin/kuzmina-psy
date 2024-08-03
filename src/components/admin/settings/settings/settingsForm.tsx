@@ -1,13 +1,17 @@
 "use client";
 import { useFormState } from "react-dom";
 import FormButton from "@/components/common/formButton";
-import * as actions from "@/actions/settings/prices/edit";
-import classes from "./editPricesForm.module.css";
+import * as actions from "@/actions/settings/settings/edit";
+import classes from "./settingsForm.module.css";
 
-export default function EditPricesForm({
-  prices,
+export default function SettingsForm({
+  settings,
 }: {
-  prices: { oneConsultation: string; fiveConsultations: string };
+  settings: {
+    oneConsultation: string;
+    fiveConsultations: string;
+    notificationsEmail: string;
+  };
 }) {
   const [formState, action] = useFormState(actions.editPrices, {});
 
@@ -17,13 +21,14 @@ export default function EditPricesForm({
   }
 
   return (
-    <form className={`adminForm ${classes.editPricesForm}`} action={action}>
+    <form className={`adminForm ${classes.settingsForm}`} action={action}>
+      <h4>Цены:</h4>
       <div>
         <label htmlFor="oneConsultation">Цена за 1 консультацию</label>
         <input
           name="oneConsultation"
           type="text"
-          defaultValue={prices.oneConsultation}
+          defaultValue={settings.oneConsultation}
         ></input>
         {formState.errors && (
           <div className="error">
@@ -37,13 +42,28 @@ export default function EditPricesForm({
         <input
           name="fiveConsultations"
           type="text"
-          defaultValue={prices.fiveConsultations}
+          defaultValue={settings.fiveConsultations}
         ></input>
         {formState.errors && (
           <div className="error">
             {formState.errors?.fiveConsultations?.join(", ")}
           </div>
         )}
+      </div>
+
+      <h4>Email:</h4>
+      <div>
+        <label htmlFor="notificationsEmail">Почта для уведомлений</label>
+        <input
+          name="notificationsEmail"
+          type="text"
+          defaultValue={settings.notificationsEmail}
+        ></input>
+        {/* {formState.errors && (
+          <div className="error">
+            {formState.errors?.notificationsEmail?.join(", ")}
+          </div>
+        )} */}
       </div>
 
       {formState.errors && (

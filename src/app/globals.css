@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
+  --disabled-light-blue-color: #b1d5e4;
   --light-blue-color: #6ec1e4;
   --darker-blue-color: #65bce2d2;
+  --button-blue-color: #11a2e0d2;
   --turquoise-color: #47e4d3;
   --darker-turquoise-color: #2ce0cc;
   --very-light-blue-color: #d0eefb;
@@ -34,6 +36,7 @@
   box-sizing: border-box;
   /* font-family: 'Lora', serif; */
   font-family: var(--font-carlito), sans-serif;
+  scroll-behavior: smooth;
 }
 
 h2 {
@@ -95,6 +98,27 @@ h4 {
   background-color: rgba(43, 119, 226, 0.85);
 }
 
+.mainPageGreen {
+  background-color: var(--darker-turquoise-color);
+}
+
+.mainPageGreen:hover {
+  background-color: var(--turquoise-color);
+}
+
+.mainPageBlue {
+  background-color: var(--button-blue-color);
+}
+
+.mainPageBlue:hover {
+  background-color: var(--light-blue-color);
+}
+
+.disabledMainPageBlue,
+.disabledMainPageBlue:hover {
+  background-color: var(--disabled-light-blue-color);
+}
+
 .red {
   background-color: var(--delete-red-color);
 }
@@ -119,8 +143,8 @@ h4 {
   background-color: var(--lighter-gray-color);
 }
 
-.btn-disabled,
-.btn-disabled:hover {
+.disabledBlue,
+.disabledBlue:hover {
   background-color: rgb(188, 204, 227);
 }
 
@@ -178,6 +202,12 @@ h4 {
   align-items: center;
 }
 
+.saveButtonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+}
+
 .saveButtonSuccessText {
   color: rgb(68, 141, 92);
 }
@@ -188,6 +218,13 @@ h4 {
   border-radius: 5px;
   padding: 5px;
   width: 100%;
+}
+
+.adminForm input:focus,
+.adminForm textarea:focus {
+  outline: none !important;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #719ece;
 }
 
 .adminFormContainer {
@@ -205,6 +242,12 @@ h4 {
   text-align: center;
   font-size: 26px;
   margin-bottom: 30px;
+}
+
+.adminHeader {
+  margin-top: 50px;
+  font-size: 30px;
+  text-align: center;
 }
 
 /*----------------------------------FOOTER----------------------------------------------*/

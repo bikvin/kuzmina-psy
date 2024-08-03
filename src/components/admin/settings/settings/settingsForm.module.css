@@ -1,0 +1,10 @@
+.settingsForm input {
+  text-align: center;
+}
+
+.settingsForm h4 {
+  margin-top: 10px;
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid var(--very-light-gray-color);
+}

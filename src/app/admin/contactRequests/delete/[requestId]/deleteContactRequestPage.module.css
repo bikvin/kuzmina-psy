@@ -1,0 +1,20 @@
+.deleteTitle {
+  color: var(--light-blue-color);
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.block {
+  display: block;
+}
+
+.confirmDeleteWindow {
+  border: 1px solid var(--lighter-gray-color);
+  padding: 30px 40px;
+  border-radius: 5px;
+}

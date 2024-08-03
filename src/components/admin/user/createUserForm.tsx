@@ -5,7 +5,7 @@ import classes from "./userForm.module.css";
 import * as actions from "@/actions/user/create";
 import FormButton from "@/components/common/formButton";
 
-export default function CreateUserForm() {
+export default function ContactForm() {
   const [formState, action] = useFormState(actions.createUser, {
     errors: {},
   });
