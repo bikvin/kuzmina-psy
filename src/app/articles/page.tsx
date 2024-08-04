@@ -4,6 +4,12 @@ import HeroSection from "@/components/visitor-side/articles-page/hero-section/he
 import ArticlesGrid from "@/components/visitor-side/articles-page/articles-grid/atrticlesGrid";
 import { data } from "./data";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Статьи - Психолог Анастасия Кузьмина",
+};
+
 export default function Articles() {
   // console.log(data);
 
