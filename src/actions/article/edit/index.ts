@@ -20,7 +20,7 @@ export async function editArticle(
   formState: EditArticleFormState,
   formData: FormData
 ): Promise<EditArticleFormState> {
-  console.log("formData ", formData);
+  // console.log("formData ", formData);
 
   const result = editArticleSchema.safeParse({
     id: formData.get("id"),
@@ -52,6 +52,10 @@ export async function editArticle(
         imageFileName: result.data.imageFileName,
       },
     });
+
+    revalidatePath("/admin/articles");
+    revalidatePath("/articles");
+    revalidatePath(`/articles/${result.data.id}`);
   } catch (err: unknown) {
     if (err instanceof Error) {
       return {
@@ -65,9 +69,6 @@ export async function editArticle(
       }
     }
   }
-
-  revalidatePath("/admin/articles");
-  revalidatePath("/articles");
 
   redirect("/admin/articles");
 }

@@ -4,6 +4,14 @@ import classes from "./singleArticle.module.css";
 import Image from "next/image";
 import { db } from "@/db";
 
+export async function generateStaticParams() {
+  const articles = await db.article.findMany();
+
+  return articles.map((article) => ({
+    id: article.id,
+  }));
+}
+
 export default async function SingleArticle({
   params,
 }: {
