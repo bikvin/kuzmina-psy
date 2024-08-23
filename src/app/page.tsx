@@ -10,6 +10,7 @@ import Accordion from "@/components/visitor-side/accordion/accordion";
 import Footer from "@/components/visitor-side/footer/footer";
 import { db } from "@/db";
 import Contact from "@/components/visitor-side/main-page/contact/contact";
+import ParallaxSection from "@/components/common/parallax-section/parallaxSection";
 
 export default async function Home() {
   let certificates;
@@ -32,18 +33,25 @@ export default async function Home() {
       <div className="page-content">
         <HeroSection />
         <WhatIWorkWith />
-        <Parallax image="face" />
+        {/* <Parallax image="face" /> */}
+        <ParallaxSection imageLink="/img/bg/face.jpg" />
         <Prices />
-        <Parallax image="exit" />
+        {/* <Parallax image="exit" /> */}
+        <ParallaxSection imageLink="/img/bg/exit.jpg" />
         <WorkProgress />
-        <Parallax image="exit2" />
+        {/* <Parallax image="exit2" /> */}
+        <ParallaxSection imageLink="/img/bg/exit2.jpg" />
         <Slider certificatesData={certificatesData} />
-        <Parallax image="sofa" />
+        {/* <Parallax image="sofa" /> */}
+        <ParallaxSection imageLink="/img/bg/sofa.jpg" />
         <Webinars />
-        <Parallax image="webinar2" />
+        {/* <Parallax image="webinar2" /> */}
+        <ParallaxSection imageLink="/img/bg/webinar2.jpg" />
         <Accordion />
-        <Parallax image="p1" />
+        {/* <Parallax image="p1" /> */}
+        <ParallaxSection imageLink="/img/bg/p1.jpg" />
         <Contact />
+
         <Footer />
       </div>
     </>
