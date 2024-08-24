@@ -34,22 +34,22 @@ export default async function Home() {
         <HeroSection />
         <WhatIWorkWith />
         {/* <Parallax image="face" /> */}
-        <ParallaxSection imageLink="/img/bg/face.jpg" />
+        <ParallaxSection imageLink="/img/bg/face.jpg" height={400} />
         <Prices />
-        {/* <Parallax image="exit" /> */}
-        <ParallaxSection imageLink="/img/bg/exit.jpg" />
+        <Parallax image="exit" />
+        {/* <ParallaxSection imageLink="/img/bg/exit.jpg" /> */}
         <WorkProgress />
         {/* <Parallax image="exit2" /> */}
-        <ParallaxSection imageLink="/img/bg/exit2.jpg" />
+        <ParallaxSection imageLink="/img/bg/exit2.jpg" height={400} />
         <Slider certificatesData={certificatesData} />
         {/* <Parallax image="sofa" /> */}
-        <ParallaxSection imageLink="/img/bg/sofa.jpg" />
+        <ParallaxSection imageLink="/img/bg/sofa.jpg" height={400} />
         <Webinars />
         {/* <Parallax image="webinar2" /> */}
-        <ParallaxSection imageLink="/img/bg/webinar2.jpg" />
+        <ParallaxSection imageLink="/img/bg/webinar2.jpg" height={400} />
         <Accordion />
         {/* <Parallax image="p1" /> */}
-        <ParallaxSection imageLink="/img/bg/p1.jpg" />
+        <ParallaxSection imageLink="/img/bg/p1.jpg" height={400} />
         <Contact />
 
         <Footer />

@@ -3,7 +3,13 @@ import classes from "./parallaxSection.module.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export default function ParallaxSection({ imageLink }: { imageLink: string }) {
+export default function ParallaxSection({
+  imageLink,
+  height,
+}: {
+  imageLink: string;
+  height?: number;
+}) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
 
@@ -19,16 +25,22 @@ export default function ParallaxSection({ imageLink }: { imageLink: string }) {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const onScroll = () => requestAnimationFrame(handleScroll);
+
+    window.addEventListener("scroll", onScroll);
 
     // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className={classes.parallaxContainer}>
+    <section
+      style={{ height: height }}
+      ref={sectionRef}
+      className={classes.parallaxContainer}
+    >
       <div ref={innerRef} className={classes.parallaxInner}>
         <Image src={imageLink} alt="" fill={true} />
       </div>
