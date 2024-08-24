@@ -4,18 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function ParallaxSection({ imageLink }: { imageLink: string }) {
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const componentRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const innerRef = useRef<HTMLDivElement | null>(null);
 
   const handleScroll = () => {
-    if (componentRef.current) {
-      const rect = componentRef.current.getBoundingClientRect();
-      // console.log("rect.y", rect.y);
-      // console.log("window.innerHeight ", window.innerHeight);
-      // console.log("parallaxOffset", window.innerHeight - rect.y);
-      // const parallaxOffset = window.innerHeight - rect.y;
-      setParallaxOffset(window.innerHeight - rect.y);
-    }
+    if (!sectionRef.current || !innerRef.current) return;
+
+    // console.log(componentRef.current);
+    const rect = sectionRef.current.getBoundingClientRect();
+
+    const parallaxOffset = window.innerHeight - rect.y;
+
+    innerRef.current.style.transform = `translateY(${parallaxOffset}px)`;
   };
 
   useEffect(() => {
@@ -27,21 +27,9 @@ export default function ParallaxSection({ imageLink }: { imageLink: string }) {
     };
   }, []);
 
-  useEffect(() => {
-    // Initial position
-    if (componentRef.current) {
-      const rect = componentRef.current.getBoundingClientRect();
-      setParallaxOffset(window.innerHeight - rect.y);
-    }
-  }, []);
-
   return (
-    <section ref={componentRef} className={classes.parallaxContainer}>
-      <div
-        className={classes.parallaxInner}
-        style={{ transform: `translateY(${parallaxOffset}px)` }}
-      >
-        {/* <img src={imageLink} alt="" /> */}
+    <section ref={sectionRef} className={classes.parallaxContainer}>
+      <div ref={innerRef} className={classes.parallaxInner}>
         <Image src={imageLink} alt="" fill={true} />
       </div>
     </section>
