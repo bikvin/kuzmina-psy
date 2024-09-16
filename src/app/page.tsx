@@ -10,8 +10,6 @@ import Accordion from "@/components/visitor-side/accordion/accordion";
 import Footer from "@/components/visitor-side/footer/footer";
 import { db } from "@/db";
 import Contact from "@/components/visitor-side/main-page/contact/contact";
-import ParallaxSection from "@/components/common/parallax-section/parallaxSection";
-import MultiLayerParallax from "@/components/common/parallax-section/MultiLayerParallax";
 
 export default async function Home() {
   let certificates;
@@ -34,34 +32,35 @@ export default async function Home() {
       <div className="page-content">
         <HeroSection />
         <WhatIWorkWith />
-        {/* <Parallax image="face" /> */}
+        <Parallax imageLink="/img/bg/face.jpg" />
         {/* <ParallaxSection imageLink="/img/bg/face.jpg" height={400} /> */}
-        <MultiLayerParallax
+        {/* <MultiLayerParallax
           imageLink="/img/bg/face.jpg"
           backgroundPosition="20% 50%"
-        />
+        /> */}
         <Prices />
-        {/* <Parallax image="exit" /> */}
+
+        <Parallax imageLink="/img/bg/exit.jpg" />
         {/* <ParallaxSection imageLink="/img/bg/exit.jpg" /> */}
-        <MultiLayerParallax
+        {/* <MultiLayerParallax
           imageLink="/img/bg/exit.jpg"
           backgroundPosition="40% 50%"
-        />
+        /> */}
         <WorkProgress />
-        {/* <Parallax image="exit2" /> */}
-        {/* <ParallaxSection imageLink="/img/bg/exit2.jpg" height={400} /> */}
-        <MultiLayerParallax imageLink="/img/bg/exit2.jpg" />
+
+        <Parallax imageLink="/img/bg/exit2.jpg" />
+
         <Slider certificatesData={certificatesData} />
-        {/* <Parallax image="sofa" /> */}
-        {/* <ParallaxSection imageLink="/img/bg/sofa.jpg" height={400} /> */}
-        <MultiLayerParallax imageLink="/img/bg/sofa.jpg" />
+        <Parallax imageLink="/img/bg/sofa.jpg" />
+
         <Webinars />
-        {/* <Parallax image="webinar2" /> */}
-        {/* <ParallaxSection imageLink="/img/bg/webinar2.jpg" height={400} /> */}
-        <MultiLayerParallax imageLink="/img/bg/webinar2.jpg" />
+
+        <Parallax imageLink="/img/bg/webinar2.jpg" />
+
         <Accordion />
-        {/* <Parallax image="p1" /> */}
-        <ParallaxSection imageLink="/img/bg/p1.jpg" height={400} />
+
+        <Parallax imageLink="/img/bg/p1.jpg" />
+
         <Contact />
 
         <Footer />

@@ -38,6 +38,7 @@ export default function MultiLayerParallax({
         style={{
           backgroundImage: `url(${imageLink})`, /// /image-full.png
           backgroundPosition: backgroundPosition,
+
           backgroundSize: "cover",
           y: backgroundY,
         }}

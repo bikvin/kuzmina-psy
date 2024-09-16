@@ -1,9 +1,9 @@
-import classes from "./heroSection.module.css";
+import Parallax from "@/components/visitor-side/main-page/parallax";
 
 export default function HeroSection() {
   return (
-    <section className={`parallax ${classes["article-hero"]}`}>
+    <Parallax imageLink="/img/bg/article.jpg" hero={true}>
       <h1>Мои статьи</h1>
-    </section>
+    </Parallax>
   );
 }

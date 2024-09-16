@@ -181,6 +181,26 @@ h4 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.parallax h1 {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.35);
+  padding: 20px 0;
+  font-weight: 400;
+  font-size: 62px;
+  font-family: var(--font-lora), serif;
+}
+
+.iOS-parallax {
+  background-attachment: scroll;
+}
+
+.hero-parallax {
+  margin-top: 50px;
 }
 
 /*----------------------------------ADMIN----------------------------------------------*/
@@ -366,5 +386,9 @@ footer .name {
 
   .adminFormContainer {
     width: 80%;
+  }
+
+  .hero-parallax h1 {
+    font-size: 42px;
   }
 }
