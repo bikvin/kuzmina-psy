@@ -6,7 +6,7 @@ import * as actions from "@/actions/webinar/edit";
 export default function EditWebinarForm(props: {
   header: string;
   description: string;
-  youTubeCode: string;
+  vimeoId: string;
   id: string;
 }) {
   const [formState, action] = useFormState(actions.editWebinar, {
@@ -40,18 +40,16 @@ export default function EditWebinarForm(props: {
       </div>
 
       <div>
-        <label htmlFor="youTubeCode">iframe код с YouTube</label>
+        <label htmlFor="vimeoId">ID видео с Vimeo (например 1010207140)</label>
 
         <textarea
-          name="youTubeCode"
-          rows={3}
-          cols={50}
-          defaultValue={props.youTubeCode}
+          name="vimeoId"
+          rows={1}
+          cols={20}
+          defaultValue={props.vimeoId}
         ></textarea>
         {formState.errors && (
-          <div className="error">
-            {formState.errors?.youTubeCode?.join(", ")}
-          </div>
+          <div className="error">{formState.errors?.vimeoId?.join(", ")}</div>
         )}
       </div>
 

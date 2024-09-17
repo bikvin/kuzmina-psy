@@ -12,8 +12,6 @@ export default function SingleArticleEditCard({
   text: string;
   description: string;
 }) {
-  // const youTubeCodeObj = { __html: youTubeCode };
-
   return (
     <div className={classes.articlesEditCard}>
       <div className={classes.column}>

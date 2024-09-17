@@ -9,7 +9,7 @@ interface EditWebinarFormState {
   errors: {
     header?: string[];
     description?: string[];
-    youTubeCode?: string[];
+    vimeoId?: string[];
     id?: string[];
     _form?: string[];
   };
@@ -23,7 +23,7 @@ export async function editWebinar(
     id: formData.get("id"),
     header: formData.get("header"),
     description: formData.get("description"),
-    youTubeCode: formData.get("youTubeCode"),
+    vimeoId: formData.get("vimeoId"),
   });
 
   if (!result.success) {
@@ -40,7 +40,7 @@ export async function editWebinar(
       data: {
         header: result.data.header,
         description: result.data.description,
-        youTubeCode: result.data.youTubeCode,
+        vimeoId: result.data.vimeoId,
       },
     });
   } catch (err: unknown) {

@@ -30,7 +30,7 @@ model Webinar {
   id          String   @id @default(cuid())
   header      String
   description String
-  youTubeCode String
+  vimeoId     String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

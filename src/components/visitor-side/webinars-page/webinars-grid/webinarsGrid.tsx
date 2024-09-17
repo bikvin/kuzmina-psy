@@ -20,7 +20,7 @@ export default async function WebinarsGrid() {
         {webinarsData.map((webinar) => (
           <Webinar
             key={webinar.id}
-            youTubeCode={webinar.youTubeCode}
+            vimeoId={webinar.vimeoId}
             header={webinar.header}
             description={webinar.description}
           />

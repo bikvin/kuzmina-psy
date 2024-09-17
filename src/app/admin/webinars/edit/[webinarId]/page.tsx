@@ -24,7 +24,7 @@ export default async function editWebinar({
         <EditWebinarForm
           header={webinar.header}
           description={webinar.description}
-          youTubeCode={webinar.youTubeCode}
+          vimeoId={webinar.vimeoId}
           id={webinar.id}
         />
       </div>

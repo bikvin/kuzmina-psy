@@ -30,13 +30,11 @@ export default function CreateWebinarForm() {
       </div>
 
       <div>
-        <label htmlFor="youTubeCode">iframe код с YouTube</label>
+        <label htmlFor="vimeoId">ID видео с Vimeo (например 1010207140)</label>
 
-        <textarea name="youTubeCode" rows={3} cols={50}></textarea>
+        <textarea name="vimeoId" rows={1} cols={20}></textarea>
         {formState.errors && (
-          <div className="error">
-            {formState.errors?.youTubeLink?.join(", ")}
-          </div>
+          <div className="error">{formState.errors?.vimeoId?.join(", ")}</div>
         )}
       </div>
 

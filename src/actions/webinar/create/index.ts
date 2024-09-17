@@ -9,7 +9,7 @@ interface CreateWebinarFormState {
   errors: {
     header?: string[];
     description?: string[];
-    youTubeLink?: string[];
+    vimeoId?: string[];
     _form?: string[];
   };
 }
@@ -21,12 +21,12 @@ export async function createWebinar(
   try {
     const header = formData.get("header");
     const description = formData.get("description");
-    const youTubeCode = formData.get("youTubeCode");
+    const vimeoId = formData.get("vimeoId");
 
     const result = createWebinarSchema.safeParse({
       header: header,
       description: description,
-      youTubeCode: youTubeCode,
+      vimeoId: vimeoId,
     });
 
     if (!result.success) {
@@ -39,7 +39,7 @@ export async function createWebinar(
       data: {
         header: result.data.header,
         description: result.data.description,
-        youTubeCode: result.data.youTubeCode,
+        vimeoId: result.data.vimeoId,
       },
     });
   } catch (err: unknown) {

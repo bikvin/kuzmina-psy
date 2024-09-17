@@ -17,7 +17,7 @@ export default async function WebinarsEdit() {
         <SingleWebinarEditCard
           key={webinar.id}
           id={webinar.id}
-          youTubeCode={webinar.youTubeCode}
+          vimeoId={webinar.vimeoId}
           header={webinar.header}
           description={webinar.description}
         />

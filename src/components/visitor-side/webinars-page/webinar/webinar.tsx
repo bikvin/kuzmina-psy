@@ -1,32 +1,32 @@
 import classes from "./webinar.module.css";
 
 interface webinarProps {
-  youTubeCode: string;
+  vimeoId: string;
   header: string;
   description: string;
 }
 
 export default function Webinar({
-  youTubeCode,
+  vimeoId,
   header,
   description,
 }: webinarProps) {
-  const youTubeCodeObj = { __html: youTubeCode };
-
   return (
     <div className={classes.webinar}>
       <div className={classes["video-wrapper"]}>
-        <div dangerouslySetInnerHTML={youTubeCodeObj} />
-
-        {/* <iframe
-            width="560"
-            height="315"
-            src={youTubeLink}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe> */}
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeoId}`}
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          title="2024-09-17 16.21.55"
+        ></iframe>
       </div>
       <h4 className="webinar-header">{header}</h4>
       <div className={classes.description}>{description}</div>

@@ -3,22 +3,32 @@ import classes from "./webinarsEdit.module.css";
 
 export default function SingleWebinarEditCard({
   id,
-  youTubeCode,
+  vimeoId,
   header,
   description,
 }: {
   id: string;
-  youTubeCode: string;
+  vimeoId: string;
   header: string;
   description: string;
 }) {
-  const youTubeCodeObj = { __html: youTubeCode };
-
   return (
     <div className={classes.webinarsEditCard}>
       <div className={classes.column}>
         <div className={classes["video-wrapper"]}>
-          <div dangerouslySetInnerHTML={youTubeCodeObj} />
+          <iframe
+            src={`https://player.vimeo.com/video/${vimeoId}`}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+            title="2024-09-17 16.21.55"
+          ></iframe>
         </div>
       </div>
 
