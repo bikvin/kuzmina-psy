@@ -1,9 +1,17 @@
+"use client";
+import { motion } from "framer-motion";
 import classes from "./work-progress.module.css";
 
 export default function WorkProgress() {
   return (
     <section className={classes["work-progress"]}>
-      <div className="wrapper">
+      <motion.div
+        className="wrapper"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "backInOut" }}
+        viewport={{ once: true, amount: 0.1 }}
+      >
         <h2 className="sectionHeader">Как будет строиться наша работа</h2>
 
         <div className={classes.content}>
@@ -70,7 +78,7 @@ export default function WorkProgress() {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,10 +1,18 @@
+"use client";
 import classes from "./what-i-work-with.module.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function WhatIWorkWith() {
   return (
     <section className={classes["what-i-work-with"]}>
-      <div className="wrapper">
+      <motion.div
+        className="wrapper"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "backInOut" }}
+        viewport={{ once: true, amount: 0.1 }}
+      >
         <h2 className="sectionHeader">Запросы, с которыми я работаю</h2>
         <div className={classes.content}>
           <div>
@@ -77,7 +85,7 @@ export default function WhatIWorkWith() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
