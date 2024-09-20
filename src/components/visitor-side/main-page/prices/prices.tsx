@@ -43,7 +43,7 @@ export default async function Prices() {
   }
 
   return (
-    <section className={classes.prices}>
+    <section className={classes.prices} style={{ overflow: "hidden" }}>
       <PricesText
         oneConsultationPrice={oneConsultationPrice}
         fiveConsultationsPrice={fiveConsultationsPrice}
