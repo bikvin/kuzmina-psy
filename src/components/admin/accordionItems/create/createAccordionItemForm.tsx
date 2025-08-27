@@ -3,7 +3,6 @@ import { useFormState } from "react-dom";
 import FormButton from "@/components/common/formButton";
 import { RichTextEditor } from "@/components/common/richTextEditor/RichTextEditor";
 import { useState } from "react";
-import DropzoneInput from "@/components/admin/articles/dropzone/dropzoneInput";
 import * as actions from "@/actions/accordionItems/create";
 
 export default function CreateAccordionItemForm() {

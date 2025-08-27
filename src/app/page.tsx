@@ -59,9 +59,9 @@ export default async function Home() {
 
         <Accordion />
 
-        <Parallax imageLink="/img/bg/p1.jpg" />
+        {/* <Parallax imageLink="/img/bg/p1.jpg" />
 
-        <Contact />
+        <Contact /> */}
 
         <Footer />
       </div>
